@@ -8,11 +8,12 @@ package oop;
  *
  * @author BBoonZ
  */
+import java.util.*;
 public class Tset {
     public static void main(String[] args) {
-        int num1 = 5, num2 = 10;
-        if (((++num1+10)>0) && (6+(--num2)>10)){
-            System.out.println(num1 + "|" + num2);
-        }
+        Scanner input = new Scanner(System.in);
+        int x1 = input.nextInt();
+        int x2 = input.nextInt();        
+        System.out.println(x1 + x2);
     }
 }
