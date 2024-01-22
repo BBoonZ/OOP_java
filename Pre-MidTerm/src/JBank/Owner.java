@@ -38,8 +38,7 @@ public class Owner {
     }
     public void protectOwnerFrom(Animal a){
         if ((animal instanceof Dog)){
-            Dog d1 = (Dog) animal;
-            d1.kick(a);
+            ((Dog)animal).kick(a);
         }else if ((animal instanceof Bird)){
             Bird b1 = (Bird) animal;
             b1.wingAttack(a);

@@ -59,8 +59,7 @@ public class Player {
     }
     public void attack(Player target, Spell spell){
         if (houses instanceof Hufflepuff){
-            Hufflepuff h1 = (Hufflepuff) houses;
-            h1.attackSpell(this, target, spell);
+            ((Hufflepuff)houses).attackSpell(this, target, spell);
         }else if (houses instanceof Gryffindor){
             Gryffindor g1 = (Gryffindor) houses;
             g1.attackSpell(this, target, spell);
