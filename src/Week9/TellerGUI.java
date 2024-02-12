@@ -73,6 +73,8 @@ public class TellerGUI implements ActionListener{
             int n = Integer.parseInt(text2.getText());
             Balance += n;
             text1.setText(Balance + "");
+        }else if (e.getSource().equals(b3)) {
+            System.exit(0);
         }
     }
     
