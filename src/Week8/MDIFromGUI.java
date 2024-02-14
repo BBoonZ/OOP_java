@@ -42,10 +42,14 @@ public class MDIFromGUI {
         fr.setJMenuBar(mb);
         mb.add(m1);
         m1.add(m4);
+        m1.addSeparator();
         m4.add(mi1);
+        m4.addSeparator();
         m4.add(mi2);
         m1.add(mi3);
+        m1.addSeparator();
         m1.add(mi4);
+        m1.addSeparator();
         m1.add(mi5);
         mb.add(m2);
         mb.add(m3);
