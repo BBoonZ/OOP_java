@@ -17,9 +17,10 @@ public class TellerGUI implements ActionListener{
     private JPanel p1, p2, p3, p4;
     private JTextField text1, text2;
     private JButton b1, b2, b3;
-    private int Balance = 6000;
+    private Account ac;
     public TellerGUI() {
         frame = new JFrame("Teller GUI");
+        ac = new Account(6000, "");
         p1 = new JPanel();
         p2 = new JPanel();
         p3 = new JPanel();
@@ -35,7 +36,7 @@ public class TellerGUI implements ActionListener{
         p1.setLayout(new GridLayout(4, 1));
 
         p2.setLayout(new GridLayout(1, 2));
-        text1 = new JTextField(Balance + "");
+        text1 = new JTextField(ac.getBalance() + "");
         text1.setEditable(false);
         p2.add(new JLabel("Balance"));
         p2.add(text1);
@@ -65,14 +66,14 @@ public class TellerGUI implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(b1)) {
             int n = Integer.parseInt(text2.getText());
-            if (n <= Balance){
-                Balance -= n;
-                text1.setText(Balance + "");
+            if (n <= ac.getBalance()){
+                ac.setBalance(ac.getBalance()-n);
+                text1.setText(ac.getBalance() + "");
             }
         }else if (e.getSource().equals(b2)) {
             int n = Integer.parseInt(text2.getText());
-            Balance += n;
-            text1.setText(Balance + "");
+            ac.setBalance(ac.getBalance()+n);
+            text1.setText(ac.getBalance() + "");
         }else if (e.getSource().equals(b3)) {
             System.exit(0);
         }
