@@ -132,5 +132,6 @@ public class StudentView implements ActionListener, WindowListener, WindowFocusL
 
     @Override
     public void windowLostFocus(WindowEvent e) {
+        System.out.println("Out Focus");
     }
 }
