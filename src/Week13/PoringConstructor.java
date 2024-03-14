@@ -39,8 +39,8 @@ public class PoringConstructor implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         //for(int i=0;i<10;i++){
-        new Poring();
-        
+        Thread t = new Thread(new Poring());
+        t.start();
         Poring.num += 1;
         //}
     }

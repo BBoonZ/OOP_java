@@ -11,6 +11,8 @@ package Week13;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 public class Poring implements MouseListener, Runnable{
     private JFrame frame;
     private JPanel panel;
@@ -30,7 +32,6 @@ public class Poring implements MouseListener, Runnable{
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         
         panel.addMouseListener(this);
-        this.run();
     }
     
 //    public static void main(String[] args) {
@@ -40,7 +41,7 @@ public class Poring implements MouseListener, Runnable{
     @Override
     public void mouseClicked(MouseEvent e) {
         System.out.println("Visible..");
-        frame.setVisible(false);
+        frame.dispose();
     }
 
     @Override
@@ -71,8 +72,15 @@ public class Poring implements MouseListener, Runnable{
 
             // Set the frame's location to the random coordinates
             frame.setLocation(randomX, randomY);
-            //for (;;){
-                
-            //}
+            while (true){
+                frame.setLocation(randomX+10, randomY);
+                frame.setLocation(randomX, randomY);
+                frame.setLocation(randomX-10, randomY);
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Poring.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
     }
 }
