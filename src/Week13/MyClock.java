@@ -16,9 +16,9 @@ import java.util.logging.Logger;
 
 public class MyClock extends JLabel implements Runnable{
 
-//    private int sec;
-//    private int min;
-//    private int hour;
+    private String sec = "0";
+    private String min = "0";
+    private String hour = "0";
     private int time;
     private boolean paused;
     
@@ -52,11 +52,26 @@ public class MyClock extends JLabel implements Runnable{
                 this.checkThread();
                 time += 1;
 
+                sec = time % 60 + "";
+                min = time / 60 + "";
+                hour = time / 3600 + "";
                 
+                System.out.println(sec);
+                System.out.println(min);
+                System.out.println(hour);
+                
+                
+                if (Integer.parseInt(sec) < 10){
+                    sec = "0" + sec;
+                }if (Integer.parseInt(min) < 10){
+                    min = "0" + min;
+                }if (Integer.parseInt(hour) < 10){
+                    hour = "0" + hour;
+                }
 
                 setFont(new Font("Verdana", Font.PLAIN, 102));
-//                setText(hour + ":" + min + ":" + sec);
-                setText("" + time);
+                setText(hour + ":" + min + ":" + sec);
+//                setText("" + time);
                 
                 Thread.sleep(1000);
             } catch (InterruptedException ex) {

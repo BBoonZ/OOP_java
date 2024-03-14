@@ -65,7 +65,7 @@ public class StudentView implements ActionListener, WindowListener, WindowFocusL
             s.setName(t2.getText());
             s.setMoney(s.getMoney() + 100);
             t3.setText("" + s.getMoney());
-            
+
         } else if (e.getSource().equals(b2)) {
             System.out.println("b2");
             s.setMoney(s.getMoney() - 100);
@@ -79,7 +79,7 @@ public class StudentView implements ActionListener, WindowListener, WindowFocusL
         File file = new File("StudentM.dat");
         if (file.exists()) {
             try (FileInputStream fin = new FileInputStream("StudentM.dat"); ObjectInputStream oin = new ObjectInputStream(fin);) {
-                
+
                 s = (Student) oin.readObject();
                 t1.setText("" + s.getID());
                 t2.setText("" + s.getName());
