@@ -8,14 +8,42 @@ package Week13;
  *
  * @author BBoonZ
  */
-public class Test2 implements Runnable{
-    public String name;
-    public Test2(String n) { name = n; }
-    @Override
-    public void run(){
-        for(int i=0;i<100;i++){
-            System.out.println(name + " : " + i);
-        }
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Test2 extends JFrame {
+    public Test2() {
+        setTitle("Menu Example");
+        setSize(300, 200);
+
+        JMenuBar menuBar = new JMenuBar();
+        JMenu fileMenu = new JMenu("File");
+        JMenuItem exitMenuItem = new JMenuItem("Exit");
+
+        exitMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Perform actions when the "Exit" menu item is clicked
+                System.out.println("e");
+                System.exit(0);
+            }
+        });
+
+        fileMenu.add(exitMenuItem);
+        menuBar.add(fileMenu);
+
+        setJMenuBar(menuBar);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new Test2();
+            }
+        });
     }
 }
 

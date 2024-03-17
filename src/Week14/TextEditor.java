@@ -11,6 +11,7 @@ package Week14;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.*;
 
 public class TextEditor implements ActionListener{
     private JFrame frame;
@@ -57,13 +58,24 @@ public class TextEditor implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource().equals("i1")){
+        if (e.getSource().equals(i1)){
             System.out.println("i1");
-        }else if (e.getSource().equals("i2")){
+            area.setText("");
+        }else if (e.getSource().equals(i2)){
             System.out.println("i2");
-        }else if (e.getSource().equals("i3")){
+            
+            JFileChooser fc = new JFileChooser();
+            fc.showOpenDialog(fc);
+            File f = fc.getSelectedFile();
+
+        }else if (e.getSource().equals(i3)){
             System.out.println("i3");
-        }else if (e.getSource().equals("i4")){
+            
+            JFileChooser fc = new JFileChooser();
+            fc.showSaveDialog(fc);
+            File f = fc.getSelectedFile();
+            
+        }else if (e.getSource().equals(i4)){
             System.out.println("i4");
             System.exit(0);
         }
